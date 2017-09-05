@@ -1,0 +1,17 @@
+<div class="section">
+<% start = @start_time %>
+<h1>Make a word from these letters!</h1>
+<ul>
+<% the_grid = @grid.each do |letter|%>
+<li><%= letter.capitalize %> </li>
+<% end %>
+</ul>
+
+<form action="/score">
+  <label for="question">Lets play!</label>
+  <input type="text" id="question" name="query" placeholder="What is your word?">
+  <input type="hidden" name="the_grid" value="<%= the_grid %>">
+<input type="hidden" name="start_time" value="<%= start %>">
+  <input type="submit" value="Go on!">
+</form>
+</div>
